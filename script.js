@@ -92,27 +92,32 @@ function mostraPerguntas(){
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
     mostraAlternativa();
-}
+
+  }
 function mostraAlternativa(){
   for (const alternativa of perguntaAtual.alternativas){
       const botaoAlternatiavas = document . createElement("button")
       botaoAlternativas . textContent = alternativa.texto;
-      botaoAlternatiavas.addEventListener("click",
-      function(){
-      })
-      atual++
-     mostraPerguntas();
-    
-      caixaAlternativas.appendChild(botaoAlternativas)
+      botaoAlternatiavas.addEventListener("click",()=> respostaSelecionada(alternativa));/**/
+       caixaAlternativas.appendChild(botaoAlternatiavas);
+      }
+    }        
+    function respostaSelecionada(opcaoSelecionada){   
+      const afirmacoes = opcaoSelecionada.afirmacao;
+    historiaFinal=afirmacaoes;
+    atual++
+    mostraPerguntas();
+  }
+  mostraPerguntas();
   
   
   
   
   
-    }
+  
+  
 
 }
 
-mostraPerguntas();
 
 
